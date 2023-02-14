@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :set_post, only: %i[ new create destroy ]
 
   # GET /comments or /comments.json
   def index
@@ -9,7 +7,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1 or /comments/1.json
   def show
-    @comment = Comment.find_by(params[:id])
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:comment_id])
   end
 
   # GET /comments/new
@@ -20,7 +19,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-    @comment = Comment.find_by(params[:id])
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:comment_id])
   end
 
   # POST /comments or /comments.json
@@ -43,6 +43,8 @@ class CommentsController < ApplicationController
 
   # PATCH/PUT /comments/1 or /comments/1.json
   def update
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.update
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
@@ -56,10 +58,12 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:comment_id])
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -67,7 +71,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = Comment.find(params[:comment_id])
     end
 
     def set_post 
