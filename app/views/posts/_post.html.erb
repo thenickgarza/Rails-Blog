@@ -10,14 +10,14 @@
   </p>
 
 
-    <div><u>
+    <div>
     <% post.comments.each do |post| %>
     <strong>Comment:</strong>
      <p><%=  post.content %></p>
       <%= link_to 'Show comment', post_comments_path(post), action: :show%>
      <p>By: <%= post.user.email %>
     <% end %>
-    </u> 
+    
   </div>
 
 </div>
