@@ -13,8 +13,8 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-   # @post = Post.find_by(params[:post_id])
-    @comment = Comment.new
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.new
   end
 
   # GET /comments/1/edit
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    # @post = Post.find_by(params[:post_id])
+     @post = Post.find_by(params[:post_id])
     #@comment = @post.comments.new(comment_params)
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
