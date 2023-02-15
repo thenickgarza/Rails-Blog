@@ -1,4 +1,4 @@
-<div id="<%= dom_id post %>" class= "container border-bottom">
+<div id="<%= dom_id post %>" class= "border border-dark">
   <p>
     <strong>Title:</strong>
     <%= post.title %>
@@ -10,7 +10,7 @@
   </p>
 
 
-    <div>
+    <div class="border border-dark">
     <% post.comments.each do |post| %>
     <strong>Comment:</strong>
      <p><%=  post.content %></p>
