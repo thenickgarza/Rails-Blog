@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts do 
     resources :comments
   end
+
+  get "users/:id" => "users#show"
  
   get 'home/index'
   devise_for :users
