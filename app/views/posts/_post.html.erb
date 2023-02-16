@@ -14,6 +14,7 @@
     <% post.comments.each do |post| %>
     <strong>Comment:</strong>
      <p><%=  post.content %></p>
+     <action_text_attachment sgid="BAh7CEkiCGdpZAY6BkVUSSIWZ2lkOi8vYmxvZy9Vc2VyLzEGOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUSSIdMjAyMy0wMy0xNVQwNjo0NDo1OS42MzdaBjsAVA==--f9f5774c818c062b41fbcc06237ee0e0f387cbdf"> </action_text_attachment>
      
      <p>By: <%= post.user.email %>
     <% end %>

@@ -1,0 +1,16 @@
+<h1 class="container d-flex justify-content-center my-3">People</h1>
+<div class= "container d-flex justify-content-center">
+<div class= "">
+  <p style="color: green"><%= notice %></p>
+  <div id="posts" class= "">
+    <% @people.each do |person| %>
+      <%= render person %>
+      <p>
+         <%= link_to "New person", new_user_person_path %>
+      </p>
+    <% end %>
+  </div>
+  </div>
+</div>
+
+<%= link_to "New person", new_user_person_path %>
