@@ -1,0 +1,11 @@
+<%= form_with model:[@person, @phone_number] do |form| %>
+  
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

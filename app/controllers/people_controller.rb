@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
 
         respond_to do |format|
             if @person.save
-              format.html { redirect_to user_people_path, notice: "Person was successfully created." }
+              format.html { redirect_to people_path, notice: "Person was successfully created." }
               format.json { render :show, status: :created, location: @person }
             else
               format.html { render :new, status: :unprocessable_entity }
