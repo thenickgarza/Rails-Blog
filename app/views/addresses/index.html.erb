@@ -6,7 +6,7 @@
   <% @addresses.each do |address| %>
     <%= render address %>
     <p>
-      <%= link_to "Show this address", person_address_path(address) %>
+      <%= link_to "Show this address", person_address_path(@person, address) %>
     </p>
   <% end %>
 </div>

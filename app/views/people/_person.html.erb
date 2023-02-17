@@ -1,10 +1,12 @@
 <% @people.each do |person| %>
   <tr>
     <td scope="row"><%= person.first_name %></td>
-    <td ><%= person.last_name %></td>
+    <td><%= person.last_name %></td>
     <% person.phone_numbers.each do |number| %>
       <td> <%= number_to_phone(number.number) %></td>
-      <% end %>
-   
+    <% end %>
+    <% person.addresses.each do |address| %>
+      <td> <%= address.street%> <%= address.city %> <%= address.state %> <%= address.zipcode %> </td>
+    <% end %>
   </tr>
 <% end %>
