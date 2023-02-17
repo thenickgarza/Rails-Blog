@@ -1,17 +1,17 @@
 <div class="container-fluid my-3>
   <p style="color: green"><%= notice %></p>
+  <%= link_to "New person", new_person_path %>
   <div id="posts" class= "">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Link</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render "person" %>
-      </tbody>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Number</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%= render "person" %>
+    </tbody>
     </table>
-  </div>
+ </div>
