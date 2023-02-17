@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Numbers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @phone_numbers.each do |number| %>
+    <tr>
+      <td scope="row"><%= number.id %></td>
+      <td scope="row"><%= number.number %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>

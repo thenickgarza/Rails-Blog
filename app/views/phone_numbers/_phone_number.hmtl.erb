@@ -1,0 +1,8 @@
+<% @phone_number.each do |number| %>
+    <tr>
+      <td scope="row"><%= number.id %></td>
+      <td scope="row"><%= number.number %></td>
+      <td scope="row"> <%= link_to "New person", new_user_person_path %> </td>
+      <td scope="row"></td>
+    </tr>
+<% end %>

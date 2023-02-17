@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_16_021628) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_17_030342) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -67,6 +67,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_021628) do
     t.index ["user_id"], name: "index_people_on_user_id"
   end
 
+  create_table "phone_numbers", force: :cascade do |t|
+    t.integer "person_id", null: false
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_phone_numbers_on_person_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title", null: false
     t.integer "views", default: 0
@@ -95,5 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_16_021628) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "people", "users"
+  add_foreign_key "phone_numbers", "people"
   add_foreign_key "posts", "users"
 end

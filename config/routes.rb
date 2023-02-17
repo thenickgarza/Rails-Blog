@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
    resources :users do 
-      resources :people
+      resources :people do 
+         resources :phone_numbers
+      end
   end
   resources :posts do 
     resources :comments

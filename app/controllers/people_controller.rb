@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
     end
 
     def set_person 
-        @person = People.find_by(params[:id])
+        @person = People.find(params[:id])
     end
 
     def people_params
