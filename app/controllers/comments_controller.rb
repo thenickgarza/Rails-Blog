@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   # GET /comments or /comments.json
   def index
     @comments = Comment.all
