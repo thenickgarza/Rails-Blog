@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_17_180853) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_232905) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -69,6 +69,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_180853) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "from"
+    t.string "to"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_invoices_on_user_id"
+  end
+
   create_table "people", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "first_name"
@@ -114,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_180853) do
   add_foreign_key "addresses", "people"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "invoices", "users"
   add_foreign_key "people", "users"
   add_foreign_key "phone_numbers", "people"
   add_foreign_key "posts", "users"

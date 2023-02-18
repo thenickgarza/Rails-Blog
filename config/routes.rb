@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invoices
     
       resources :people do
       resources :phone_numbers
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :profile
+  resources :invoices
+
 
   get "users/:id" => "users#show"
  

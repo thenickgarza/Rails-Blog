@@ -4,17 +4,17 @@
     <td><%= person.last_name %></td>
     <% if person.phone_numbers.exists? %>
       <% person.phone_numbers.each do |number| %>
-        <td> <%= number_to_phone(number.number) %></td>
+        <td> <%= number_to_phone(number.number) %> </td>
       <% end %>
     <% else %>
-      <td> &nbsp; </td>
+      <td> <%= link_to "Add A Number", new_person_phone_number_path(person) %> </td>
     <% end %>
     <% if person.addresses.exists? %>
       <% person.addresses.each do |address| %>
         <td> <%= address.street%> <%= address.city %> <%= address.state %> <%= address.zipcode %> </td>
       <% end %>
     <% else %>
-      <td> &nbsp; </td>
+      <td> <%= link_to "Add a Address", new_person_address_path(person) %>  </td>
     <% end %>
   </tr>
 <% end %>
